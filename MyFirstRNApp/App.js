@@ -6,6 +6,8 @@ import MyFlatlist from './components/MyFlatlist';
 import DisplayAnImage from './components/DisplayAnImage';
 import Ibg from './components/Ibg';
 import KeyBoard from './components/KeyBoard';
+import Mod from './components/Mod';
+
 export default function App() {
   return (
     <View style={styles.container}>
@@ -16,6 +18,7 @@ export default function App() {
        <DisplayAnImage />
        <Ibg />
        <KeyBoard />
+       <Mod />
       <StatusBar style="auto" />
     </View>
   );

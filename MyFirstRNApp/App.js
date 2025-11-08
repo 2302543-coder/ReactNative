@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import ActivityLoader from './components/ActivityLoader';
-import ButtonExample from './components/ButtonExample';
+import Button from './components/ButtonExample';
 
 export default function App() {
   return (

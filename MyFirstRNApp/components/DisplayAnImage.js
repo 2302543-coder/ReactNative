@@ -21,7 +21,7 @@ const DisplayAnImage = () => (
     <SafeAreaView style={styles.container}>
       <Image
         style={styles.tinyLogo}
-        source={require('./assets/react-native-logo.png')}
+        source={require('../assets/react-native-logo.png')}
       />
       <Image
         style={styles.tinyLogo}

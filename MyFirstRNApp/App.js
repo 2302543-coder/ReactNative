@@ -4,7 +4,7 @@ import ActivityLoader from './components/ActivityLoader';
 import ButtonEx from './components/ButtonEx';
 import MyFlatlist from './components/MyFlatlist';
 import DisplayAnImage from './components/DisplayAnImage';
-
+import Ibg from './components/Ibg';
 
 export default function App() {
   return (
@@ -14,6 +14,7 @@ export default function App() {
        <ButtonEx />
        <MyFlatlist />
        <DisplayAnImage />
+       <Ibg />
       <StatusBar style="auto" />
     </View>
   );

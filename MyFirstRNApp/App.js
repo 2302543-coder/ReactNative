@@ -6,7 +6,7 @@ import MyFlatlist from './components/MyFlatlist';
 import DisplayAnImage from './components/DisplayAnImage';
 import Ibg from './components/Ibg';
 import KeyBoard from './components/KeyBoard';
-import Mod from './components/Mod';
+import Mods from './components/Mods';
 import Press from './components/Press';
 
 
@@ -20,7 +20,7 @@ export default function App() {
        <DisplayAnImage />
        <Ibg />
        <KeyBoard />
-       <Mod />
+       <Mods />
        <Press />
       <StatusBar style="auto" />
     </View>

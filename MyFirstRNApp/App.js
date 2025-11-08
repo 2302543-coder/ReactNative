@@ -1,12 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import ActivityLoader from './components/ActivityLoader';
+import ButtonExample from './components/ButtonExample';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Text>My React Native App</Text>
       <ActivityLoader /> 
+       <Button />
       <StatusBar style="auto" />
     </View>
   );

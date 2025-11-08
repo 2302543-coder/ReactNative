@@ -1,16 +1,16 @@
 import React from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
-import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const ActivityLoader = () => (
-  <SafeAreaProvider>
-    <SafeAreaView style={[styles.container, styles.horizontal]}>
+  <SafeAreaView style={styles.container}>
+    <View style={styles.horizontal}>
       <ActivityIndicator />
       <ActivityIndicator size="large" />
       <ActivityIndicator size="small" color="#0000ff" />
       <ActivityIndicator size="large" color="#00ff00" />
-    </SafeAreaView>
-  </SafeAreaProvider>
+    </View>
+  </SafeAreaView>
 );
 
 const styles = StyleSheet.create({

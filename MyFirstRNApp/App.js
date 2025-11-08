@@ -5,7 +5,7 @@ import ButtonEx from './components/ButtonEx';
 import MyFlatlist from './components/MyFlatlist';
 import DisplayAnImage from './components/DisplayAnImage';
 import Ibg from './components/Ibg';
-
+import KeyBoard from './components/KeyBoard';
 export default function App() {
   return (
     <View style={styles.container}>
@@ -15,6 +15,7 @@ export default function App() {
        <MyFlatlist />
        <DisplayAnImage />
        <Ibg />
+       <KeyBoard />
       <StatusBar style="auto" />
     </View>
   );

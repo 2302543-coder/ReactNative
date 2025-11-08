@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import ActivityLoader from './components/ActivityLoader';
 import ButtonEx from './components/ButtonEx';
 import MyFlatlist from './components/MyFlatlist';
+import DisplayAnImage from './components/DisplayAnImage';
 
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
       <ActivityLoader /> 
        <ButtonEx />
        <MyFlatlist />
+       <DisplayAnImage />
       <StatusBar style="auto" />
     </View>
   );

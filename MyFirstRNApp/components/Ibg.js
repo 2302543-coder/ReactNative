@@ -1,22 +1,21 @@
 import React from 'react';
-import {ImageBackground, StyleSheet, Text} from 'react-native';
-import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 
-const image = {uri: 'https://legacy.reactjs.org/logo-og.png'};
+const image = { uri: 'https://legacy.reactjs.org/logo-og.png' };
 
 const Ibg = () => (
-  <SafeAreaProvider>
-    <SafeAreaView style={styles.container} edges={['left', 'right']}>
-      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-        <Text style={styles.text}>Inside</Text>
-      </ImageBackground>
-    </SafeAreaView>
-  </SafeAreaProvider>
+  <View style={styles.container}>
+    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+      <Text style={styles.text}>Inside</Text>
+    </ImageBackground>
+  </View>
 );
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: 120,   // adjust width as needed
+    height: 120,  // adjust height as needed
+    margin: 5,
   },
   image: {
     flex: 1,
@@ -24,11 +23,10 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
-    fontSize: 42,
-    lineHeight: 84,
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
-    backgroundColor: '#000000c0',
+    backgroundColor: '#00000080',
   },
 });
 

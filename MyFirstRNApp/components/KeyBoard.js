@@ -31,26 +31,26 @@ const KeyBoard = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // Removed flex: 1 to avoid taking full screen
+    width: '100%',
+    padding: 10,
   },
   inner: {
-    padding: 24,
-    flex: 1,
-    justifyContent: 'space-around',
+    padding: 10,
   },
   header: {
-    fontSize: 36,
-    marginBottom: 48,
+    fontSize: 24,
+    marginBottom: 12,
   },
   textInput: {
     height: 40,
-    borderColor: '#000000',
+    borderColor: '#000',
     borderBottomWidth: 1,
-    marginBottom: 36,
+    marginBottom: 12,
+    paddingHorizontal: 5,
   },
   btnContainer: {
-    backgroundColor: 'white',
-    marginTop: 12,
+    marginTop: 10,
   },
 });
 

@@ -1,38 +1,62 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import ActivityLoader from './components/ActivityLoader';
 import ButtonEx from './components/ButtonEx';
-import MyFlatlist from './components/MyFlatlist';
 import DisplayAnImage from './components/DisplayAnImage';
 import Ibg from './components/Ibg';
 import KeyBoard from './components/KeyBoard';
 import Mods from './components/Mods';
 import Press from './components/Press';
+import Refresh from './components/Refresh';
 
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>My React Native App</Text>
-      <ActivityLoader /> 
-       <ButtonEx />
-       <MyFlatlist />
-       <DisplayAnImage />
-       <Ibg />
-       <KeyBoard />
-       <Mods />
-       <Press />
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.title}>My React Native App</Text>
+
+      {/* Row 1 */}
+      <View style={styles.row}>
+        <ActivityLoader />
+        <ButtonEx />
+      </View>
+
+      {/* Row 2 */}
+      <View style={styles.row}>
+        <DisplayAnImage />
+        <Ibg />
+        <KeyBoard />
+      </View>
+
+      {/* Row 3 */}
+      <View style={styles.row}>
+        <Mods />
+        <Press />
+        <Refresh/>
+      </View>
+
       <StatusBar style="auto" />
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    paddingVertical: 20,
+    backgroundColor: 'beige',
   },
-
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
+    marginBottom: 20,
+    flexWrap: 'wrap',
+  },
 });

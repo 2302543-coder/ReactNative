@@ -4,9 +4,9 @@ import { View, Switch, StyleSheet } from 'react-native';
 const Sw = ({ isEnabled, toggleSwitch }) => (
   <View style={styles.container}>
     <Switch
-      trackColor={{ false: '#767577', true: '#81b0ff' }}
-      thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-      ios_backgroundColor="#3e3e3e"
+      trackColor={{ false: '#888', true: '#fff' }}
+      thumbColor={isEnabled ? '#fff' : '#000'}
+      ios_backgroundColor="#555"
       onValueChange={toggleSwitch}
       value={isEnabled}
     />

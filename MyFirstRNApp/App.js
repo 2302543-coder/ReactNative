@@ -12,6 +12,10 @@ import Refresh from './components/Refresh';
 import Scroll from './components/Scroll';
 import Bar from './components/Bar';
 import Sw from './components/Sw';
+import Te from './components/Te';
+import Tats from './components/Tats';
+import Hello from './components/Hello';
+
 
 const SECTION_DATA = [
   { title: 'Main dishes', data: ['Pizza', 'Burger', 'Risotto'] },
@@ -32,6 +36,7 @@ export default function App() {
       <View style={styles.row}>
         <ActivityLoader />
         <ButtonEx />
+        <Tats/>
       </View>
 
       <View style={styles.row}>
@@ -44,12 +49,15 @@ export default function App() {
         <Mods />
         <Press />
         <Refresh />
+        <Hello/>
       </View>
 
       <View style={styles.row}>
         <Bar />
         <Sw isEnabled={bgEnabled} toggleSwitch={toggleBg} />
+        <Te/>
       </View>
+      
 
       <Scroll />
     </View>

@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, SectionList } from 'react-native';
 import ActivityLoader from './components/ActivityLoader';
@@ -9,6 +10,8 @@ import Mods from './components/Mods';
 import Press from './components/Press';
 import Refresh from './components/Refresh';
 import Scroll from './components/Scroll';
+import Bar from './components/Bar';
+import Sw from './components/Sw';
 
 const SECTION_DATA = [
   { title: 'Main dishes', data: ['Pizza', 'Burger', 'Risotto'] },
@@ -18,6 +21,10 @@ const SECTION_DATA = [
 ];
 
 export default function App() {
+  const [bgEnabled, setBgEnabled] = useState(false); // Background toggle
+
+  const toggleBg = () => setBgEnabled(prev => !prev);
+
   const renderHeader = () => (
     <View>
       <Text style={styles.title}>My React Native App</Text>
@@ -39,6 +46,11 @@ export default function App() {
         <Refresh />
       </View>
 
+      <View style={styles.row}>
+        <Bar />
+        <Sw isEnabled={bgEnabled} toggleSwitch={toggleBg} />
+      </View>
+
       <Scroll />
     </View>
   );
@@ -58,7 +70,10 @@ export default function App() {
         </View>
       )}
       ListHeaderComponent={renderHeader} 
-      contentContainerStyle={{ paddingBottom: 20 }}
+      contentContainerStyle={{
+        paddingBottom: 20,
+        backgroundColor: bgEnabled ? '#81b0ff' : '#fff', // <-- Background changes here
+      }}
     />
   );
 }

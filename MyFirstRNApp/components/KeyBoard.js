@@ -1,57 +1,81 @@
-import React from 'react';
-import {
-  View,
-  KeyboardAvoidingView,
-  TextInput,
-  StyleSheet,
-  Text,
-  Platform,
-  TouchableWithoutFeedback,
-  Button,
-  Keyboard,
-} from 'react-native';
+import React, { useState } from 'react';
+import { Alert, Modal, StyleSheet, Text, Pressable, View } from 'react-native';
 
-const KeyBoard = () => {
+const Mods = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.container}>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.inner}>
-          <Text style={styles.header}>Header</Text>
-          <TextInput placeholder="Username" style={styles.textInput} />
-          <View style={styles.btnContainer}>
-            <Button title="Submit" onPress={() => null} />
+    <View style={styles.centeredView}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+          setModalVisible(false);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Hello World!</Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(false)}
+            >
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </Pressable>
           </View>
         </View>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+      </Modal>
+
+      <Pressable
+        style={[styles.button, styles.buttonOpen]}
+        onPress={() => setModalVisible(true)}
+      >
+        <Text style={styles.textStyle}>Show Modal</Text>
+      </Pressable>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    // Removed flex: 1 to avoid taking full screen
-    width: '100%',
+  centeredView: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
     padding: 10,
+    elevation: 2,
   },
-  inner: {
-    padding: 10,
+  buttonOpen: {
+    backgroundColor: '#F194FF',
   },
-  header: {
-    fontSize: 24,
-    marginBottom: 12,
+  buttonClose: {
+    backgroundColor: '#2196F3',
   },
-  textInput: {
-    height: 40,
-    borderColor: '#000',
-    borderBottomWidth: 1,
-    marginBottom: 12,
-    paddingHorizontal: 5,
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
-  btnContainer: {
-    marginTop: 10,
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
   },
 });
 
-export default KeyBoard;
+export default Mods;

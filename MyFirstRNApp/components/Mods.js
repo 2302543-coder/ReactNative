@@ -5,7 +5,7 @@ const Mods = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <View style={styles.centeredView}>
+    <View style={styles.container}>
       <Modal
         animationType="slide"
         transparent={true}
@@ -15,7 +15,7 @@ const Mods = () => {
           setModalVisible(false);
         }}
       >
-        <View style={styles.centeredView}>
+        <View style={styles.modalBackground}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Hello World!</Text>
             <Pressable
@@ -39,10 +39,15 @@ const Mods = () => {
 };
 
 const styles = StyleSheet.create({
-  centeredView: {
-    justifyContent: 'center',
+  container: {
     alignItems: 'center',
     marginVertical: 10,
+  },
+  modalBackground: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#00000099', // semi-transparent background
   },
   modalView: {
     margin: 20,

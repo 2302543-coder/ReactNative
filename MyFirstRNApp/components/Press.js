@@ -1,60 +1,59 @@
-import React, {useState} from 'react';
-import {Pressable, StyleSheet, Text, View} from 'react-native';
-import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+import React, { useState } from 'react';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 const Press = () => {
   const [timesPressed, setTimesPressed] = useState(0);
 
-  let textLog = '';
-  if (timesPressed > 1) {
-    textLog = timesPressed + 'x onPress';
-  } else if (timesPressed > 0) {
-    textLog = 'onPress';
-  }
+  const textLog =
+    timesPressed > 1 ? `${timesPressed}x onPress` : timesPressed === 1 ? 'onPress' : '';
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={styles.container}>
-        <Pressable
-          onPress={() => {
-            setTimesPressed(current => current + 1);
-          }}
-          style={({pressed}) => [
-            {
-              backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
-            },
-            styles.wrapperCustom,
-          ]}>
-          {({pressed}) => (
-            <Text style={styles.text}>{pressed ? 'Pressed!' : 'Press Me'}</Text>
-          )}
-        </Pressable>
-        <View style={styles.logBox}>
-          <Text testID="pressable_press_console">{textLog}</Text>
-        </View>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <View style={styles.container}>
+      <Pressable
+        onPress={() => setTimesPressed((current) => current + 1)}
+        style={({ pressed }) => [
+          {
+            backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
+          },
+          styles.wrapperCustom,
+        ]}
+      >
+        {({ pressed }) => (
+          <Text style={styles.text}>{pressed ? 'Pressed!' : 'Press Me'}</Text>
+        )}
+      </Pressable>
+
+      <View style={styles.logBox}>
+        <Text>{textLog}</Text>
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 10,
   },
   text: {
     fontSize: 16,
+    textAlign: 'center',
   },
   wrapperCustom: {
     borderRadius: 8,
-    padding: 6,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    marginBottom: 10,
   },
   logBox: {
-    padding: 20,
-    margin: 10,
+    padding: 10,
     borderWidth: StyleSheet.hairlineWidth,
-    borderColor: '#f0f0f0',
+    borderColor: '#ccc',
     backgroundColor: '#f9f9f9',
+    borderRadius: 8,
+    minWidth: 120,
+    alignItems: 'center',
   },
 });
 

@@ -13,14 +13,18 @@ const Item = ({ title }) => (
   </View>
 );
 
-const MyFlatlist = () => (
-  <FlatList
-    data={DATA}
-    renderItem={({ item }) => <Item title={item.title} />}
-    keyExtractor={item => item.id}
-    scrollEnabled={false} // IMPORTANT: disables its own scrolling
-  />
-);
+const MyFlatlist = () => {
+  const renderItem = ({ item }) => <Item title={item.title} />;
+
+  return (
+    <FlatList
+      data={DATA}
+      renderItem={renderItem}
+      keyExtractor={item => item.id}
+      contentContainerStyle={{ paddingBottom: 20 }}
+    />
+  );
+};
 
 const styles = StyleSheet.create({
   item: {
@@ -28,9 +32,10 @@ const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
+    borderRadius: 8, // matches other components
   },
   title: {
-    fontSize: 24,
+    fontSize: 18, // match App.js itemText
   },
 });
 

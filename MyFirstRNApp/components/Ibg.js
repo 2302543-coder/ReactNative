@@ -1,25 +1,20 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text } from 'react-native';
 
 const image = { uri: 'https://legacy.reactjs.org/logo-og.png' };
 
 const Ibg = () => (
-  <View style={styles.container}>
-    <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-      <Text style={styles.text}>Inside</Text>
-    </ImageBackground>
-  </View>
+  <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+    <Text style={styles.text}>Inside</Text>
+  </ImageBackground>
 );
 
 const styles = StyleSheet.create({
-  container: {
-    width: 120,   // adjust width as needed
-    height: 120,  // adjust height as needed
-    margin: 5,
-  },
   image: {
-    flex: 1,
+    width: 120,
+    height: 120,
     justifyContent: 'center',
+    margin: 5,
   },
   text: {
     color: 'white',
